@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container" style="position: relative;">
+        <div class="row">
+            <div class="col-12">
+                <img src="img/logo.jpg" class="img-fluid" style="height: 200px; width: 100%;" alt="Imagen Arriba">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="position: relative;">
+                <img src="img/fondo.jpg" class="img-fluid" style="width: 100%;" alt="Imagen Centro">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <button class="btn btn-success btn-lg d-block mx-auto" data-toggle="modal" data-target="#accesoModal">Acceso</button>
+                    <br>
+                    <p style="color: rgb(255, 255, 255);">No tienes una cuenta, <a href="#" class="text-success d-block text-center" data-toggle="modal" data-target="#registroModal"> suscribirse</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Modal de Acceso -->
+    <div class="modal fade" id="accesoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">BIENVENIDO A LINEA ESTUDIANTIL</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="email" class="form-control" placeholder="Correo institucional">
+                    <input type="password" class="form-control mt-2" placeholder="Contraseña">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#principalModal">Acceso</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">BIENVENIDO A LINEA ESTUDIANTIL</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="email" class="form-control" placeholder="Correo institucional">
+                    <input type="password" class="form-control mt-2" placeholder="Contraseña">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#principalModal">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Página Principal (para pruebas) -->
+    <div class="modal fade" id="principalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Página Principal (Para Pruebas)</h5>
+                </div>
+                <div class="modal-body">
+                    ¡Bienvenido! Has ingresado con éxito.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript para mostrar las ventanas modales
+        $(document).ready(function () {
+            // Abre la ventana de Acceso
+            $('#accesoModal').on('show.bs.modal', function (e) {
+                $('#registroModal').modal('hide');
+            });
+    
+            // Abre la ventana de Registro
+            $('#registroModal').on('show.bs.modal', function (e) {
+                $('#accesoModal').modal('hide');
+            });
+    
+            // Redirigir a página principal después de acceso
+            $('#accesoModal').on('hidden.bs.modal', function () {
+                window.location.href = 'principal.html'; // Cambia la URL a la correcta
+            });
+    
+            // Mostrar mensaje después de registro y redirigir a index.html
+            $('#registroModal').on('hidden.bs.modal', function () {
+                alert('¡Registro exitoso!'); // Puedes personalizar el mensaje aquí
+                window.location.href = 'index.html'; // Cambia la URL a la correcta
+            });
+    
+            // Abre la ventana de Página Principal (para pruebas)
+            $('#principalModal').on('show.bs.modal', function (e) {
+                $('#accesoModal').modal('hide');
+                $('#registroModal').modal('hide');
+            });
+        });
+    </script>
+</body>
+</html>
