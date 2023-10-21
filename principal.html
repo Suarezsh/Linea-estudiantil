@@ -143,28 +143,45 @@
 <!-- Ventana emergente "Agenda" -->
 <div class="modal fade" id="agendaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #333; color: #fff;">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Agenda</h5>
             </div>
             <div class="modal-body">
                 <p>Tu agenda, aquí organizarás tus tareas.</p>
-                <div class="row">
-                    <div class="col-6" style="background-color: #FF5733;">
-                        <p>Examenes</p>
-                    </div>
-                    <div class="col-6" style="background-color: #33FF57;">
-                        <p>Grupos de trabajo</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6" style="background-color: #5733FF;">
-                        <p>Curso</p>
-                    </div>
-                    <div class="col-6" style="background-color: #FFFF33;">
-                        <p>Apuntes</p>
-                    </div>
-                </div>
+                <details>
+                    <summary>Examenes</summary>
+                    <p>Detalles y fechas de los próximos exámenes:</p>
+                    <ul>
+                        <li>Matemáticas - 15 de noviembre</li>
+                        <li>Historia - 18 de noviembre</li>
+                        <li>Ciencias - 22 de noviembre</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Grupos de trabajo</summary>
+                    <p>Información sobre tus grupos de trabajo:</p>
+                    <ul>
+                        <li>Grupo de Matemáticas - Reunión el jueves a las 3 PM</li>
+                        <li>Grupo de Historia - Tarea compartida en el grupo</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Curso</summary>
+                    <p>Detalles sobre tu curso actual:</p>
+                    <ul>
+                        <li>Nombre del curso: "Introducción a la Programación"</li>
+                        <li>Horario de clases: Lunes y miércoles a las 10 AM</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Apuntes</summary>
+                    <p>Organiza y accede a tus apuntes fácilmente:</p>
+                    <ul>
+                        <li>Apuntes de Matemáticas - Tema: Álgebra lineal</li>
+                        <li>Apuntes de Historia - Tema: Revolución Industrial</li>
+                    </ul>
+                </details>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" data-dismiss="modal">Continuar</button>
@@ -173,58 +190,37 @@
     </div>
 </div>
 
+
 <!-- Ventana emergente "Música" -->
 <div class="modal fade" id="musicaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #333; color: #fff;">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Música</h5>
             </div>
             <div class="modal-body">
                 <p>Tu música, aquí tendrás tus canciones.</p>
                 <div class="row">
-                    <div class="col-6" style="background-color: #FF5733;">
+                    <div class="col-6" style="background-color: #524947;">
                         <p>Favoritos</p>
                     </div>
-                    <div class="col-6" style="background-color: #33FF57;">
+                    <div class="col-6" style="background-color: #39433b;">
                         <p>Lista de reproducción</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6" style="background-color: #5733FF;">
+                    <div class="col-6" style="background-color: #413f49;">
                         <p>Recientes</p>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal">Continuar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Ventana emergente "Talleres" -->
-<div class="modal fade" id="talleresModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Talleres</h5>
-            </div>
-            <div class="modal-body">
-                <p>Talleres para crecer, aquí tendrás acceso a diversos talleres interactivos.</p>
-                <div class="row">
-                    <div class="col-6" style="background-color: #FF5733;">
-                        <p>Buscar</p>
-                    </div>
-                    <div class="col-6" style="background-color: #33FF57;">
-                        <p>Talleres de teatro</p>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <audio id="musicPlayer" src="music.mp3" controls></audio>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6" style="background-color: #5733FF;">
-                        <p>Talleres de música</p>
-                    </div>
-                    <div class="col-6" style="background-color: #FFFF33;">
-                        <p>Talleres de psicología</p>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary" onclick="toggleAudio()">Reproducir / Pausar</button>
                     </div>
                 </div>
             </div>
@@ -235,42 +231,77 @@
     </div>
 </div>
 
+
+<!-- Ventana emergente "Talleres" -->
+<div class="modal fade" id="talleresModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #333; color: #fff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Talleres</h5>
+            </div>
+            <div class="modal-body">
+                <p>Talleres para crecer, aquí tendrás acceso a diversos talleres interactivos.</p>
+                <details>
+                    <summary ><strong>Buscar</strong></summary>
+                    <p>Aprende a utilizar herramientas de búsqueda en línea de manera efectiva. Descubre cómo encontrar información relevante en Internet.</p>
+                </details>
+                <details>
+                    <summary><strong>Talleres de teatro</strong></summary>
+                    <p>Explora el mundo del teatro a través de nuestros talleres. Desde la actuación hasta la dirección, tenemos talleres para todos los amantes del teatro.</p>
+                </details>
+                <details>
+                    <summary><strong>Talleres de música</strong></summary>
+                    <p>Sumérgete en el mundo de la música con nuestros talleres. Aprende a tocar instrumentos, componer canciones y más.</p>
+                </details>
+                <details>
+                    <summary><strong>Talleres de psicología</strong></summary>
+                    <p>Comprende la mente humana y explora los conceptos clave de la psicología a través de nuestros talleres especializados.</p>
+                </details>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Ventana emergente "Libros" -->
 <div class="modal fade" id="librosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #333; color: #fff;">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Libros</h5>
             </div>
             <div class="modal-body">
-                <p>Tus libros más cerca, aquí tendrás variedad de libros según tu carrera.</p>
+                <p>Tus libros más cerca, aquí tendrás una variedad de libros según tu carrera. Utiliza el buscador para encontrar libros y consulta tu lista de libros leídos.</p>
                 <div class="row">
                     <div class="col-12">
                         <input type="text" class="form-control" placeholder="Buscar libros...">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6" style="background-color: #FF5733;">
-                        <p>Libro 1</p>
+                <div class="row ">
+                    <div class="col-12" style="background-color: #433b39;">
+                        <p >La Odisea - Homero</p>
                     </div>
-                    <div class="col-6" style="background-color: #33FF57;">
-                        <p>Libro 2</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6" style="background-color: #5733FF;">
-                        <p>Libro 3</p>
-                    </div>
-                    <div class="col-6" style="background-color: #FFFF33;">
-                        <p>Libro 4</p>
+                    <div class="col-12" style="background-color: #3b443d;">
+                        <p>Cien años de soledad - Gabriel García Márquez</p>
                     </div>
                 </div>
-                <p>Lista de libros leídos:</p>
+                <div class="row">
+                    <div class="col-12" style="background-color: #323137;">
+                        <p>1984 - George Orwell</p>
+                    </div>
+                    <div class="col-12" style="background-color: #373731;">
+                        <p>El Gran Gatsby - F. Scott Fitzgerald</p>
+                    </div>
+                </div>
+                <p style="color: black; ">Lista de libros leídos:</p>
                 <ul>
-                    <li>Obra 1</li>
-                    <li>Obra 2</li>
-                    <li>Obra 3</li>
-                    <li>Obra 4</li>
+                    <li>Don Quijote de la Mancha - Miguel de Cervantes</li>
+                    <li>En busca del tiempo perdido - Marcel Proust</li>
+                    <li>Matar un ruiseñor - Harper Lee</li>
+                    <li>El Señor de los Anillos - J.R.R. Tolkien</li>
                 </ul>
             </div>
             <div class="modal-footer">
@@ -279,6 +310,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 
@@ -359,6 +392,15 @@
         function redirectToIndex() {
             window.location.href = 'principal.html';
         }
+        // Función para reproducir o pausar la música
+    function toggleAudio() {
+        var audio = document.getElementById("musicPlayer");
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
     </script>
 </body>
 </html>
